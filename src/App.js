@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function Todo({ todo, index }) {
-	return <div>{todo.text}</div>;
+	return <div className="todo">{todo.text}</div>;
+}
+
+function TodoForm() {
+	return (
+		<div className="todoForm">
+			<input type="text" placeholder="Add todo..." />
+		</div>
+	);
 }
 
 function App() {
@@ -21,11 +30,12 @@ function App() {
 	]);
 
 	return (
-		<div>
-			<div>
+		<div className="app">
+			<div className="todo-list">
 				{todos.map((todo, index) => (
 					<Todo key={index} index={index} todo={todo} />
 				))}
+				<TodoForm />
 			</div>
 		</div>
 	);
